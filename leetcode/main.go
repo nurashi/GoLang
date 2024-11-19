@@ -2,37 +2,49 @@ package main
 
 import "fmt"
 
-func inputNum1(nums1 []int, m int) {
-	for i := 0; i < m; i++ {
-		fmt.Scan(&nums1[i])
+func removeDuplicates(arr []int, n int, m int) []int {
+	cheker := false
+	result := []int{}
+	for i := 0; i < n+m; i++ {
+		cheker = false
+		for j := 0; j < len(result); j++ {
+			if arr[i] == arr[j] {
+				cheker = true
+				break
+			}
+		}
+		if !cheker {
+			result = append(result, arr[i])
+		}
 	}
+	return result
 }
-func inputNum2(nums2 []int, n int) {
-	for i :=0; i < n; i++ {
-		fmt.Scan(&nums2[i])
-	}
-}
-func merge(nums1 []int, m int, nums2 []int, n int) {
-	for i := 0; i < n + m; i++ {
-		nums1 = append(nums1, nums2[i])
+
+func inputArray(arr []int, n int) {
+	for i := 0; i < n; i++ {
+		fmt.Scan(&arr[i])
 	}
 }
 
-func output(nums1 []int, n int, m int) {
-	for i:=0;i < n+m; i++ {
-		fmt.Print(nums1[i], " ")
+func toOneArray(arr []int, arr1 []int, n int, m int, arr2 []int) []int{
+	return append(arr1, arr2...)
+}
+
+func output(result []int){
+	for i:=0; i < len(result); i++ {
+		fmt.Print(result[i], " ")
 	}
 }
 
 func main() {
 	var n, m int
-	fmt.Scan(&m, &n)
-
-	
-	nums1 := make([]int, m)
-	nums2 := make([]int, n)
-	inputNum1(nums1, m)
-	inputNum2(nums2, n)
-	merge(nums1, m, nums2, n)
-	output(nums1, n, m)
+	fmt.Scan(&n, &m)
+	arr := make([]int, n)
+	arr1 := make([]int, m)
+	arr2 := make([]int, n+m)
+	inputArray(arr, n)
+	inputArray(arr1, m)
+	oneArray :=	toOneArray(arr, arr1, n, m, arr2)
+	uniqArray := removeDuplicates(oneArray, n, m)
+	output(uniqArray)
 }

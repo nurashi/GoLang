@@ -1,8 +1,10 @@
-package array1
+package main
 
-import "fmt"
+type footbalPlayer struct {
+	stamina int
+	power   int
+}
 
 func main() {
-	x := 1
-	fmt.Println(x)
+
 }

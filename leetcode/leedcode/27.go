@@ -1,4 +1,4 @@
-package main
+package leedcode
 
 import "fmt"
 
@@ -12,7 +12,7 @@ func removeElement(nums []int, val int) int {
 	k := 0
 	for i := 0; i < len(nums); i++ {
 		if nums[i] != val {
-			nums[k] = nums[i];
+			nums[k] = nums[i]
 			k++
 		}
 	}
@@ -25,7 +25,7 @@ func output(nums []int, count int) {
 	}
 	for i := count; i < len(nums); i++ {
 		fmt.Print(nums[i], " ")
-	} 
+	}
 }
 
 func main() {

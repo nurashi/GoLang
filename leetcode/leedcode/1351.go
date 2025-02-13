@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package leedcode
 
 func countNegatives(grid [][]int) int {
 
@@ -13,10 +11,4 @@ func countNegatives(grid [][]int) int {
 		}
 	}
 	return counter
-}
-
-func main() {
-	grid := [][]int{{2, 3}, {1, 0}}
-
-	fmt.Println(countNegatives(grid))
 }

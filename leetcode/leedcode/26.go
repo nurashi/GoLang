@@ -1,12 +1,5 @@
 package leedcode
 
-import "fmt"
-
-func inputArray(arr []int, n int) {
-	for i := 0; i < n; i++ {
-		fmt.Scan(&arr[i])
-	}
-}
 
 func removeDuplicates(arr []int, n int) int {
 	var idx int = 1
@@ -31,22 +24,3 @@ func bubbleSort(arr []int, n int) {
 	}
 }
 
-func output(arr []int, n int, idx int) {
-	for i := 0; i < idx; i++ {
-		fmt.Print(arr[i], " ")
-	}
-	for j := idx; j < n; j++ {
-		fmt.Print("_ ")
-	}
-	fmt.Println()
-}
-
-func main() {
-	var n int
-	fmt.Scan(&n)
-	arr := make([]int, n)
-	inputArray(arr, n)
-	bubbleSort(arr, n)
-	output(arr, n, removeDuplicates(arr, n))
-
-}

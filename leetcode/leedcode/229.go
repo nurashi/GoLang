@@ -1,6 +1,5 @@
-package main
+package leedcode
 
-import "fmt"
 
 func majorityElementMedium(nums []int) []int {
 	n := len(nums)
@@ -30,10 +29,4 @@ func majorityElementMedium(nums []int) []int {
 	}
 
 	return arr
-}
-
-
-func main() { 
-	nums := []int{1,2}
-	fmt.Println(majorityElementMedium(nums))
 }

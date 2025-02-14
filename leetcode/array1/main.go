@@ -1,22 +1,32 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
-func countNegatives(grid [][]int) int {
-
-	counter := 0
-	for i := 0; i < len(grid); i++ {
-		for j := 0; j < len(grid[i]); j++ {
-			if grid[i][j] < 0 {
-				counter++
-			}
-		}
+func addDigits(num int) int {
+	if num < 10 {
+		return num
 	}
-	return counter
+
+	sum := 0
+	convertedNumber := strconv.Itoa(num)
+
+	for i := range convertedNumber {
+		sum += int(convertedNumber[i] - '0')
+	}
+
+	if sum > 9 {
+		addDigits(sum)
+		sum = 0
+	}
+
+	return sum
 }
 
 func main() {
-	grid := [][]int{{2, 3}, {1, 0}}
 
-	fmt.Println(countNegatives(grid))
+	num := 38
+	fmt.Println(addDigits(num))
 }

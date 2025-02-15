@@ -2,38 +2,48 @@ package main
 
 import "fmt"
 
-func majorityElementMedium(nums []int) []int {
-	n := len(nums)
-	if(n < 3){
-		return nums
+
+func mostFrequentEven(nums []int) []int { 
+
+
+	evens := []int{}
+
+
+	for i := 0; i < len(nums); i++ {
+		if(nums[i] % 2 == 0) {
+			evens = append(evens, nums[i])
+		}
 	}
-	
 
 	count := make(map[int]int)
-	max := -1
-	for _, num := range nums {
-		count[num]++
-	}
 
-	for _, value := range count {
+	for _, value := range evens {
+		count[value]++
+		
+	}
+	max := -1
+	repeatedEvens := []int{}
+	for _, value := range evens {
 		if(value > max){
 			max = value
 		}
 	}
-	arr := []int{}
 
-
-	for key, value := range count {
-		if(value > (n/3)) {
-			arr = append(arr, key)
+	for key, value := range evens {
+		if(max == value) {
+			repeatedEvens = append(repeatedEvens, evens[key])
 		}
 	}
 
-	return arr
+	return repeatedEvens
 }
 
 
 func main() { 
-	nums := []int{1,2}
-	fmt.Println(majorityElementMedium(nums))
+
+
+
+	nums := []int{0,1,2,2,4,4,1}
+
+	fmt.Println(mostFrequentEven(nums))
 }

@@ -1,49 +1,20 @@
 package main
 
-import "fmt"
 
+func reverseString(s []byte) {
 
-func mostFrequentEven(nums []int) []int { 
-
-
-	evens := []int{}
-
-
-	for i := 0; i < len(nums); i++ {
-		if(nums[i] % 2 == 0) {
-			evens = append(evens, nums[i])
-		}
-	}
-
-	count := make(map[int]int)
-
-	for _, value := range evens {
-		count[value]++
-		
-	}
-	max := -1
-	repeatedEvens := []int{}
-	for _, value := range evens {
-		if(value > max){
-			max = value
-		}
-	}
-
-	for key, value := range evens {
-		if(max == value) {
-			repeatedEvens = append(repeatedEvens, evens[key])
-		}
-	}
-
-	return repeatedEvens
+	for i:=len(s); i <= 0;i-- {
+		for j := 0; i >= len(s); j++ {
+			letter:= s[i]
+			s[j] = 
+ 		}
+	}	
 }
 
 
 func main() { 
+	s := []byte{'h','e','l','l','o'}
 
 
-
-	nums := []int{0,1,2,2,4,4,1}
-
-	fmt.Println(mostFrequentEven(nums))
+	reverseString(s)
 }

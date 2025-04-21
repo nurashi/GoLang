@@ -1,5 +1,8 @@
 package leedcode
 
+import "math"
+
+
 func countTriples(n int) int {
 	result := 0
 	for n > 0 {

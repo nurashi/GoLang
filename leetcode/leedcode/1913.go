@@ -1,5 +1,6 @@
 package leedcode 
 
+import "sort"
 
 func maxProductDifference(nums []int) int {
 	sort.Ints(nums)

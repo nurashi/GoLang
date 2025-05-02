@@ -1,24 +1,28 @@
 package main
 
-import "fmt"
+import (
+	"strconv"
 
-   
-func intersection(nums1 []int, nums2 []int) []int {
-    var result []int
-	for i := 0; i < len(nums1); i++ {
-		for j := i; j < len(nums2); j++ {
-			if(nums1[i] == nums2[j]){
-				result = append(result, nums1[i])
-			}
-		}
+)
+
+
+
+
+func addDigits(num int) int {
+	if(num / 10 == 0){
+		return num
 	}
-	return result;
+
+	data := strconv.Itoa(num)
+	sum := 0;
+	for i := 0; i < len(data); i++{
+		sum += int(data[i] - '0')
+	}
+	return addDigits(sum)
 }
 
-func main() { 
-	arr := []int{1,2,2,1}
-	arr1 := []int{2,2}
-	result := intersection(arr, arr1)
 
-	fmt.Println(result)
+
+func main() {
+
 }

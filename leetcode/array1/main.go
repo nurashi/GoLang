@@ -1,28 +1,27 @@
-package main
+package main 
 
-import (
-	"strconv"
-
-)
-
-
-
-
-func addDigits(num int) int {
-	if(num / 10 == 0){
-		return num
+func cheker(word string, letter string) bool {
+	count := 0
+	for i := 0; i < len(word); i++ {
+		if letter == string(word[i]) {
+			count++
+		}
 	}
-
-	data := strconv.Itoa(num)
-	sum := 0;
-	for i := 0; i < len(data); i++{
-		sum += int(data[i] - '0')
-	}
-	return addDigits(sum)
+	return count == 1
 }
 
 
+func firstUniqChar(s string) int {
+	
+	for i := 0; i < len(s); i++{
+		if(cheker(s, string(s[i]))){
+			return i;
+		}
+	}
+	return -1;
+}
 
-func main() {
+func main() { 
+	firstUniqChar("leetcode");
 
 }

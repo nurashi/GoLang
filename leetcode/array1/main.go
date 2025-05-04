@@ -2,37 +2,22 @@ package main
 
 import (
 	"fmt"
-	"slices"
+	"strconv"
 )
 
-
-//[5 4 2 3] -> [3 2 5 4]
-// first round alice removes 2, Bob removes 3, append -> 3 and then 2, alice, bob, bob, alice
-
-// find min first time, and remove, but save in some varible ALICE 
-// find min second time, and remove, but save in same varible BOB
-// append BOB varible to result
-// append ALICE variable to result
-func numberGame(nums []int) []int {
-
-	result := []int{}
-
-	// 2 3 4 5 -> 3 2 5 4
-	slices.Sort(nums)
-	for i := 1; i < len(nums); i+=2 {
-		result = append(result, nums[i])
-		result = append(result, nums[i - 1])
+func countDigits(num int) int {
+    strNum := strconv.Itoa(num)
+	counter := 0
+	for i := 0; i < len(strNum); i++ {
+		current := int(strNum[i])
+		if(num % current == 0){
+			counter++
+		}
 	}
-
-	
-	
-	return result
+	return counter + 1;
 }
 
-func main() {
-	nums := []int{5,4,2,3}
-
-	result := numberGame(nums)
-
-	fmt.Print(result, " ")
+func main() { 
+	num := 121
+	fmt.Println(countDigits(num))
 }

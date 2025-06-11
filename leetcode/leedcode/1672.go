@@ -1,6 +1,5 @@
-package main
+package leedcode
 
-import "fmt"
 
 func maximumWealth(accounts [][]int) int {
 	max := 0
@@ -16,11 +15,4 @@ func maximumWealth(accounts [][]int) int {
 	}
 
 	return checkMax
-}
-
-func main() {
-
-	arr := [][]int{{1, 2, 3}, {3, 2, 1}}
-
-	fmt.Print(maximumWealth(arr))
 }

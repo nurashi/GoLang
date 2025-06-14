@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package leedcode
 
 func isAnagram(s string, t string) bool {
 	if len(s) != len(t) {
@@ -20,10 +18,4 @@ func isAnagram(s string, t string) bool {
 		}
 	}
 	return true
-}
-
-func main() {
-	s := "rat"
-	t := "car"
-	fmt.Println(isAnagram(s, t))
 }

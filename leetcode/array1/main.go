@@ -2,23 +2,18 @@ package main
 
 import "fmt"
 
-func isUgly(n int) bool {
-	if n <= 0 {
-		return false
+func findDisappearedNumbers(nums []int) []int {
+
+	arr := []int{}
+	for i := 0; i < len(nums); i++ {
+		if nums[i] != 0 && nums[i] <= len(nums) {
+			arr = append(arr, nums[i])
+		}
 	}
-	for n % 2 == 0 {
-		n /= 2
-	}
-	for n % 3 == 0 {
-		n /= 3
-	}
-	for n % 5 == 0 {
-		n /= 5
-	}
-	return n == 1
+	return arr
 }
 
 func main() {
-	n := 14
-	fmt.Println(isUgly(n))
+	arr := []int{4,3,2,7,8,2,3,1}
+	fmt.Print(findDisappearedNumbers(arr))
 }
